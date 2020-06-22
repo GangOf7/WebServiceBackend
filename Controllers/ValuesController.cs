@@ -41,7 +41,12 @@ namespace PiratesBay.Controllers
                     $"Parameter Required : No\r\n" +
                     $"Error message : {ex.Message}");
 
-                return BadRequest("Unable to get all the details");
+                return BadRequest($"\r\nError occured while trying to process request:\r\n" +
+                    $"==============================================================================\r\n" +
+                    $"Controller Section : Values\r\n" +
+                    $"Method : Get\r\n" +
+                    $"Parameter Required : No\r\n" +
+                    $"Error message : {ex.Message}");
             }
         }
 

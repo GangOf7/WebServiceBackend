@@ -39,6 +39,7 @@ namespace PiratesBay
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.Configure<TwilioSettings>(Configuration.GetSection("Twilio"));
+            services.AddScoped<Communicate>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

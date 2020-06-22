@@ -7,9 +7,6 @@ using Microsoft.Extensions.Options;
 using PiratesBay.Data.IRepositories;
 using PiratesBay.Models;
 using PiratesBay.Services.Communication;
-using Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Rest.IpMessaging.V1.Service.Channel;
 
 namespace PiratesBay.Controllers
 {
@@ -20,13 +17,14 @@ namespace PiratesBay.Controllers
         private readonly ILogger<ValuesController> _Logger;
 
         public IUnitOfWork _UnitOfWork { get; }
+        public Communicate _Communicate { get; }
         public TwilioSettings _TwilioOptions { get; }
 
-        public ValuesController(IUnitOfWork unitOfWork, ILogger<ValuesController> logger, IOptions<TwilioSettings> twilioSettings)
+        public ValuesController(IUnitOfWork unitOfWork, ILogger<ValuesController> logger, Communicate communicate)
         {
             _UnitOfWork = unitOfWork;
             _Logger = logger;
-            _TwilioOptions = twilioSettings.Value;
+            _Communicate = communicate;
         }
 
         [HttpGet]
@@ -95,13 +93,8 @@ namespace PiratesBay.Controllers
                 _Logger.LogInformation($"Testing ValuesController Post passed for value{value.Name}");
 
 
+                _Communicate.SendSMS(value);   // ASYNC call, not awaited
 
-                TwilioClient.Init(_TwilioOptions.AccountSid, _TwilioOptions.AuthToken);
-                var message = Twilio.Rest.Api.V2010.Account.MessageResource.Create (
-                    body: $"New Value insterted with the Name : {value.Name}",
-                    from: new Twilio.Types.PhoneNumber(_TwilioOptions.PhoneNumber),
-                    to: "+919903752152"
-                    );
 
                 return Created("New data added successfully", value);
             }

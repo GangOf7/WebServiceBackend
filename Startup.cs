@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using PiratesBay.Data;
 using PiratesBay.Data.IRepositories;
 using PiratesBay.Data.Repositories;
+using PiratesBay.Services.Communication;
 
 namespace PiratesBay
 {
@@ -37,6 +38,7 @@ namespace PiratesBay
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.Configure<TwilioSettings>(Configuration.GetSection("Twilio"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

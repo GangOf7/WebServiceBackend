@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using PiratesBay.Data.IRepositories;
 using PiratesBay.Models;
+using PiratesBay.Services.Communication;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Rest.IpMessaging.V1.Service.Channel;
 
 namespace PiratesBay.Controllers
 {
@@ -15,12 +20,13 @@ namespace PiratesBay.Controllers
         private readonly ILogger<ValuesController> _Logger;
 
         public IUnitOfWork _UnitOfWork { get; }
+        public TwilioSettings _TwilioOptions { get; }
 
-
-        public ValuesController(IUnitOfWork unitOfWork, ILogger<ValuesController> logger)
+        public ValuesController(IUnitOfWork unitOfWork, ILogger<ValuesController> logger, IOptions<TwilioSettings> twilioSettings)
         {
             _UnitOfWork = unitOfWork;
             _Logger = logger;
+            _TwilioOptions = twilioSettings.Value;
         }
 
         [HttpGet]
@@ -87,6 +93,16 @@ namespace PiratesBay.Controllers
                 await _UnitOfWork.values.AddAsync(value);
                 await _UnitOfWork.SaveAsyn();
                 _Logger.LogInformation($"Testing ValuesController Post passed for value{value.Name}");
+
+
+
+                TwilioClient.Init(_TwilioOptions.AccountSid, _TwilioOptions.AuthToken);
+                var message = Twilio.Rest.Api.V2010.Account.MessageResource.Create (
+                    body: $"New Value insterted with the Name : {value.Name}",
+                    from: new Twilio.Types.PhoneNumber(_TwilioOptions.PhoneNumber),
+                    to: "+919903752152"
+                    );
+
                 return Created("New data added successfully", value);
             }
             catch (Exception ex)

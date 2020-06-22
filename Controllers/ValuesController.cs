@@ -70,7 +70,12 @@ namespace PiratesBay.Controllers
                     $"Parameter Required : Yes : ID {id}\r\n" +
                     $"Error message : {ex.Message}\r\n");
 
-                return BadRequest("Unable to get all the details");
+                return BadRequest($"\r\nError occured while trying to process request:\r\n" +
+                    $"==============================================================================\r\n" +
+                    $"Controller Section : Values\r\n" +
+                    $"Method : Get\r\n" +
+                    $"Parameter Required : Yes : ID {id}\r\n" +
+                    $"Error message : {ex.Message}\r\n");
             }
         }
 
@@ -93,7 +98,12 @@ namespace PiratesBay.Controllers
                     $"Parameter Required : Yes : From Body\r\n" +
                     $"Error message : {ex.Message}\r\n");
 
-                return BadRequest("Unable to process the request. Modify the input details and try again");
+                return BadRequest($"\r\nError occured while trying to process request:\r\n" +
+                    $"==============================================================================\r\n" +
+                    $"Controller Section : Values\r\n" +
+                    $"Method : POST\r\n" +
+                    $"Parameter Required : Yes : From Body\r\n" +
+                    $"Error message : {ex.Message}\r\n");
             }
         }
 

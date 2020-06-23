@@ -16,6 +16,7 @@ using PiratesBay.Data.IRepositories;
 using PiratesBay.Data.Repositories;
 using PiratesBay.Services.Communication;
 
+
 namespace PiratesBay
 {
     public class Startup
@@ -32,10 +33,19 @@ namespace PiratesBay
         {
             services.AddControllers();
 
-            services.AddDbContext<DataContext>(opt =>
-            {
-                opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
-            });
+            //********************* SQL Lite Connection *******************************************
+
+            //services.AddDbContext<DataContext>(opt =>
+            //{
+            //    opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+            //});            
+
+            //********************* SQL Server Connection *******************************************
+
+            services.AddDbContext<DataContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //********************************-------------*****************************************
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.Configure<TwilioSettings>(Configuration.GetSection("Twilio"));

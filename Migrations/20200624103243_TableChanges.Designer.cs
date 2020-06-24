@@ -10,8 +10,8 @@ using PiratesBay.Data;
 namespace PiratesBay.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200623102217_IntroducingTables")]
-    partial class IntroducingTables
+    [Migration("20200624103243_TableChanges")]
+    partial class TableChanges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,12 @@ namespace PiratesBay.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("User_Id")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("User_Id");
 
                     b.ToTable("CommunicationLog");
                 });
@@ -128,148 +133,67 @@ namespace PiratesBay.Migrations
                     b.ToTable("EventLog");
                 });
 
-            modelBuilder.Entity("PiratesBay.Models.ParameterMeasureMarkAmber", b =>
+            modelBuilder.Entity("PiratesBay.Models.ParameterBenchmark", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Ammonium_level_High")
+                    b.Property<double>("Amber_Threshold_High")
                         .HasColumnType("float");
 
-                    b.Property<double>("Ammonium_level_Low")
+                    b.Property<double>("Amber_Threshold_Low")
                         .HasColumnType("float");
 
-                    b.Property<double>("Dissolved_oxygen_High")
+                    b.Property<double>("Green_Threshold_High")
                         .HasColumnType("float");
 
-                    b.Property<double>("Dissolved_oxygen_Low")
+                    b.Property<double>("Green_Threshold_Low")
                         .HasColumnType("float");
 
-                    b.Property<double>("PH_Level_High")
+                    b.Property<DateTime>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Param_Id")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Red_Threshold_High")
                         .HasColumnType("float");
 
-                    b.Property<double>("PH_Level_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Salinity_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Salinity_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Total_Dissolved_Solid_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Total_Dissolved_Solid_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Water_Temperature_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Water_Temperature_Low")
+                    b.Property<double>("Red_Threshold_Low")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ParameterMeasureMarkAmber");
+                    b.HasIndex("Param_Id");
+
+                    b.ToTable("ParameterBenchmark");
                 });
 
-            modelBuilder.Entity("PiratesBay.Models.ParameterMeasureMarkGreen", b =>
+            modelBuilder.Entity("PiratesBay.Models.Parameter_Master", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Ammonium_level_High")
-                        .HasColumnType("float");
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Ammonium_level_Low")
-                        .HasColumnType("float");
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
 
-                    b.Property<double>("Dissolved_oxygen_High")
-                        .HasColumnType("float");
+                    b.Property<string>("Param_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Dissolved_oxygen_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("PH_Level_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("PH_Level_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Salinity_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Salinity_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Total_Dissolved_Solid_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Total_Dissolved_Solid_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Water_Temperature_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Water_Temperature_Low")
-                        .HasColumnType("float");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ParameterMeasureMarkGreen");
-                });
-
-            modelBuilder.Entity("PiratesBay.Models.ParameterMeasureMarkRed", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("Ammonium_level_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Ammonium_level_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Dissolved_oxygen_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Dissolved_oxygen_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("PH_Level_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("PH_Level_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Salinity_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Salinity_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Total_Dissolved_Solid_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Total_Dissolved_Solid_Low")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Water_Temperature_High")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Water_Temperature_Low")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ParameterMeasureMarkRed");
+                    b.ToTable("Parameter_Masters");
                 });
 
             modelBuilder.Entity("PiratesBay.Models.Role", b =>
@@ -294,35 +218,43 @@ namespace PiratesBay.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Ammonium_level")
-                        .HasColumnType("float");
-
                     b.Property<DateTime>("DataEntryTime")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Device_Id")
                         .HasColumnType("int");
 
-                    b.Property<double>("Dissolved_oxygen")
+                    b.Property<double>("Input_Value")
                         .HasColumnType("float");
 
-                    b.Property<double>("PH_Level")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Salinity")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Total_Dissolved_Solid")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Water_Temperature")
-                        .HasColumnType("float");
+                    b.Property<int>("Param_Id")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Device_Id");
 
+                    b.HasIndex("Param_Id");
+
                     b.ToTable("SensorData");
+                });
+
+            modelBuilder.Entity("PiratesBay.Models.UserDeviceMapping", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Device_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("User_Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserDeviceMapping");
                 });
 
             modelBuilder.Entity("PiratesBay.Models.UserInfo", b =>
@@ -389,11 +321,35 @@ namespace PiratesBay.Migrations
                         });
                 });
 
+            modelBuilder.Entity("PiratesBay.Models.CommunicationLog", b =>
+                {
+                    b.HasOne("PiratesBay.Models.UserInfo", "UserInfo")
+                        .WithMany()
+                        .HasForeignKey("User_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PiratesBay.Models.ParameterBenchmark", b =>
+                {
+                    b.HasOne("PiratesBay.Models.Parameter_Master", "Parameter_Master")
+                        .WithMany()
+                        .HasForeignKey("Param_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("PiratesBay.Models.SensorData", b =>
                 {
                     b.HasOne("PiratesBay.Models.Device_info", "Device_Info")
                         .WithMany()
                         .HasForeignKey("Device_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PiratesBay.Models.Parameter_Master", "Parameter_Master")
+                        .WithMany()
+                        .HasForeignKey("Param_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

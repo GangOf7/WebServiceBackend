@@ -7,18 +7,14 @@ using System.Threading.Tasks;
 
 namespace PiratesBay.Models
 {
-    public class CommunicationLog
+    public class UserDeviceMapping
     {
         [Key]
         public int Id { get; set; }
-        public DateTime DataEntryTime { get; set; }
 
-        public string PhoneNumber { get; set; }
-        public string Message { get; set; }
-
+        public int Device_Id { get; set; }
         public int User_Id { get; set; }
-        [ForeignKey("User_Id")]
-        public  UserInfo UserInfo { get; set; }
+
 
     }
 }

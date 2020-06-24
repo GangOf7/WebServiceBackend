@@ -12,10 +12,6 @@ namespace PiratesBay.Models
         [Key]
         public int Id { get; set; }
 
-        public int Device_Id { get; set; }
-        [ForeignKey("Device_Id")]
-        public Device_info Device_Info { get; set; }
-
         public  string Name { get; set; }        
         public string PhoneNumber { get; set; }
         public string AlternativePhoneNumber { get; set; }

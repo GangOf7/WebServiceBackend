@@ -15,5 +15,7 @@ namespace PiratesBay.Models
         public string CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public bool Status { get; set; }
+        public string lastupdatedby { get; set; }
+        public DateTime lastupdatedon { get; set; }
     }
 }

@@ -14,6 +14,8 @@ namespace PiratesBay.Models
 
         public int Device_Id { get; set; }
         public int User_Id { get; set; }
+        public string lastupdatedby { get; set; }
+        public DateTime lastupdatedon { get; set; }
 
 
     }

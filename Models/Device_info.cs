@@ -21,6 +21,8 @@ namespace PiratesBay.Models
         public string Latitude { get; set; }
         public string Longitude { get; set; }
         public bool Status { get; set; }
+        public string lastupdatedby { get; set; }
+        public DateTime lastupdatedon { get; set; }
 
 
 

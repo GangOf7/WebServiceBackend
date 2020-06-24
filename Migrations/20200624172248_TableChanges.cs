@@ -3,10 +3,31 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PiratesBay.Migrations
 {
-    public partial class TableChanges2 : Migration
+    public partial class TableChanges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "CorrectiveMessage",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Green_Threshold_High = table.Column<string>(nullable: false),
+                    Green_Threshold_Low = table.Column<string>(nullable: false),
+                    Amber_Threshold_High = table.Column<string>(nullable: false),
+                    Amber_Threshold_Low = table.Column<string>(nullable: false),
+                    Red_Threshold_High = table.Column<string>(nullable: false),
+                    Red_Threshold_Low = table.Column<string>(nullable: false),
+                    MessageType = table.Column<string>(nullable: true),
+                    lastupdatedby = table.Column<string>(nullable: true),
+                    lastupdatedon = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CorrectiveMessage", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Device_info",
                 columns: table => new
@@ -21,27 +42,13 @@ namespace PiratesBay.Migrations
                     Area = table.Column<string>(nullable: true),
                     Latitude = table.Column<string>(nullable: true),
                     Longitude = table.Column<string>(nullable: true),
-                    Status = table.Column<bool>(nullable: false)
+                    Status = table.Column<bool>(nullable: false),
+                    lastupdatedby = table.Column<string>(nullable: true),
+                    lastupdatedon = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Device_info", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "EventLog",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Message = table.Column<string>(nullable: true),
-                    MessageType = table.Column<string>(nullable: true),
-                    DataEntryTime = table.Column<DateTime>(nullable: false),
-                    ErrorLocation = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EventLog", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -53,7 +60,9 @@ namespace PiratesBay.Migrations
                     Param_Name = table.Column<string>(nullable: false),
                     CreatedBy = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    Status = table.Column<bool>(nullable: false)
+                    Status = table.Column<bool>(nullable: false),
+                    lastupdatedby = table.Column<string>(nullable: true),
+                    lastupdatedon = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,7 +75,9 @@ namespace PiratesBay.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleName = table.Column<string>(nullable: true)
+                    RoleName = table.Column<string>(nullable: true),
+                    lastupdatedby = table.Column<string>(nullable: true),
+                    lastupdatedon = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -80,7 +91,9 @@ namespace PiratesBay.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Device_Id = table.Column<int>(nullable: false),
-                    User_Id = table.Column<int>(nullable: false)
+                    User_Id = table.Column<int>(nullable: false),
+                    lastupdatedby = table.Column<string>(nullable: true),
+                    lastupdatedon = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,27 +114,39 @@ namespace PiratesBay.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CorrectiveMessage",
+                name: "Warning_Corrective_Mapping",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Param_Id = table.Column<int>(nullable: false),
-                    Green_Threshold_High = table.Column<string>(nullable: false),
-                    Green_Threshold_Low = table.Column<string>(nullable: false),
-                    Amber_Threshold_High = table.Column<string>(nullable: false),
-                    Amber_Threshold_Low = table.Column<string>(nullable: false),
-                    Red_Threshold_High = table.Column<string>(nullable: false),
-                    Red_Threshold_Low = table.Column<string>(nullable: false),
-                    MessageType = table.Column<string>(nullable: true)
+                    CorrectiveMessage_ID = table.Column<int>(nullable: false),
+                    Warning_ID = table.Column<int>(nullable: false),
+                    lastupdatedby = table.Column<string>(nullable: true),
+                    lastupdatedon = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CorrectiveMessage", x => x.Id);
+                    table.PrimaryKey("PK_Warning_Corrective_Mapping", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventLog",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Message = table.Column<string>(nullable: true),
+                    MessageType = table.Column<string>(nullable: true),
+                    DataEntryTime = table.Column<DateTime>(nullable: false),
+                    Device_Id = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventLog", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CorrectiveMessage_Parameter_Masters_Param_Id",
-                        column: x => x.Param_Id,
-                        principalTable: "Parameter_Masters",
+                        name: "FK_EventLog_Device_info_Device_Id",
+                        column: x => x.Device_Id,
+                        principalTable: "Device_info",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -139,7 +164,8 @@ namespace PiratesBay.Migrations
                     Amber_Threshold_Low = table.Column<double>(nullable: false),
                     Red_Threshold_High = table.Column<double>(nullable: false),
                     Red_Threshold_Low = table.Column<double>(nullable: false),
-                    LastUpdatedOn = table.Column<DateTime>(nullable: false)
+                    lastupdatedby = table.Column<string>(nullable: true),
+                    lastupdatedon = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -186,10 +212,14 @@ namespace PiratesBay.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Role_Id = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
                     AlternativePhoneNumber = table.Column<string>(nullable: true),
-                    Role_Id = table.Column<int>(nullable: false)
+                    EmailAddress = table.Column<string>(nullable: true),
+                    NotificationFrequency = table.Column<string>(nullable: true),
+                    lastupdatedby = table.Column<string>(nullable: true),
+                    lastupdatedon = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -208,10 +238,11 @@ namespace PiratesBay.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DataEntryTime = table.Column<DateTime>(nullable: false),
-                    PhoneNumber = table.Column<string>(nullable: true),
+                    User_Id = table.Column<int>(nullable: false),
+                    warning_corrective_mapping_ID = table.Column<int>(nullable: false),
                     Message = table.Column<string>(nullable: true),
-                    User_Id = table.Column<int>(nullable: false)
+                    Communication_Type = table.Column<string>(nullable: true),
+                    DataEntryTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -220,6 +251,12 @@ namespace PiratesBay.Migrations
                         name: "FK_CommunicationLog_UserInfo_User_Id",
                         column: x => x.User_Id,
                         principalTable: "UserInfo",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CommunicationLog_Warning_Corrective_Mapping_warning_corrective_mapping_ID",
+                        column: x => x.warning_corrective_mapping_ID,
+                        principalTable: "Warning_Corrective_Mapping",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -245,9 +282,14 @@ namespace PiratesBay.Migrations
                 column: "User_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CorrectiveMessage_Param_Id",
-                table: "CorrectiveMessage",
-                column: "Param_Id");
+                name: "IX_CommunicationLog_warning_corrective_mapping_ID",
+                table: "CommunicationLog",
+                column: "warning_corrective_mapping_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventLog_Device_Id",
+                table: "EventLog",
+                column: "Device_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ParameterBenchmark_Param_Id",
@@ -295,6 +337,9 @@ namespace PiratesBay.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserInfo");
+
+            migrationBuilder.DropTable(
+                name: "Warning_Corrective_Mapping");
 
             migrationBuilder.DropTable(
                 name: "Device_info");

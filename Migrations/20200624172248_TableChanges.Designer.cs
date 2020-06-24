@@ -10,8 +10,8 @@ using PiratesBay.Data;
 namespace PiratesBay.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200624140756_TableChanges2")]
-    partial class TableChanges2
+    [Migration("20200624172248_TableChanges")]
+    partial class TableChanges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,21 +28,26 @@ namespace PiratesBay.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Communication_Type")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DataEntryTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("User_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("warning_corrective_mapping_ID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("User_Id");
+
+                    b.HasIndex("warning_corrective_mapping_ID");
 
                     b.ToTable("CommunicationLog");
                 });
@@ -73,9 +78,6 @@ namespace PiratesBay.Migrations
                     b.Property<string>("MessageType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Param_Id")
-                        .HasColumnType("int");
-
                     b.Property<string>("Red_Threshold_High")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -84,9 +86,13 @@ namespace PiratesBay.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("Param_Id");
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
 
                     b.ToTable("CorrectiveMessage");
                 });
@@ -127,6 +133,12 @@ namespace PiratesBay.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Device_info");
@@ -142,8 +154,8 @@ namespace PiratesBay.Migrations
                     b.Property<DateTime>("DataEntryTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ErrorLocation")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Device_Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
@@ -152,6 +164,8 @@ namespace PiratesBay.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Device_Id");
 
                     b.ToTable("EventLog");
                 });
@@ -175,9 +189,6 @@ namespace PiratesBay.Migrations
                     b.Property<double>("Green_Threshold_Low")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("LastUpdatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("Param_Id")
                         .HasColumnType("int");
 
@@ -186,6 +197,12 @@ namespace PiratesBay.Migrations
 
                     b.Property<double>("Red_Threshold_Low")
                         .HasColumnType("float");
+
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -214,6 +231,12 @@ namespace PiratesBay.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Parameter_Masters");
@@ -228,6 +251,12 @@ namespace PiratesBay.Migrations
 
                     b.Property<string>("RoleName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -275,6 +304,12 @@ namespace PiratesBay.Migrations
                     b.Property<int>("User_Id")
                         .HasColumnType("int");
 
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("UserDeviceMapping");
@@ -290,7 +325,13 @@ namespace PiratesBay.Migrations
                     b.Property<string>("AlternativePhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EmailAddress")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NotificationFrequency")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -298,6 +339,12 @@ namespace PiratesBay.Migrations
 
                     b.Property<int>("Role_Id")
                         .HasColumnType("int");
+
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -339,6 +386,30 @@ namespace PiratesBay.Migrations
                         });
                 });
 
+            modelBuilder.Entity("PiratesBay.Models.Warning_Corrective_Mapping", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CorrectiveMessage_ID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Warning_ID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Warning_Corrective_Mapping");
+                });
+
             modelBuilder.Entity("PiratesBay.Models.CommunicationLog", b =>
                 {
                     b.HasOne("PiratesBay.Models.UserInfo", "UserInfo")
@@ -346,13 +417,19 @@ namespace PiratesBay.Migrations
                         .HasForeignKey("User_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PiratesBay.Models.Warning_Corrective_Mapping", "Warning_Corrective_Mapping")
+                        .WithMany()
+                        .HasForeignKey("warning_corrective_mapping_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("PiratesBay.Models.CorrectiveMessage", b =>
+            modelBuilder.Entity("PiratesBay.Models.EventLog", b =>
                 {
-                    b.HasOne("PiratesBay.Models.Parameter_Master", "Parameter_Master")
+                    b.HasOne("PiratesBay.Models.Device_info", "Device_Info")
                         .WithMany()
-                        .HasForeignKey("Param_Id")
+                        .HasForeignKey("Device_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

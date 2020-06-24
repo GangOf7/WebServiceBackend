@@ -11,14 +11,23 @@ namespace PiratesBay.Models
     {
         [Key]
         public int Id { get; set; }
+        public int Role_Id { get; set; }
+        [ForeignKey("Role_Id")]
+        public Role Role { get; set; }
 
         public  string Name { get; set; }        
         public string PhoneNumber { get; set; }
         public string AlternativePhoneNumber { get; set; }
+        
+        public string EmailAddress { get; set; }
 
-        public int Role_Id { get; set; }
-        [ForeignKey("Role_Id")]
-        public Role Role { get; set; }
+        public string NotificationFrequency { get; set; }
+
+        public string lastupdatedby { get; set; }
+        public DateTime lastupdatedon { get; set; }
+
+
+
 
 
 

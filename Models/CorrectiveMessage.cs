@@ -10,11 +10,7 @@ namespace PiratesBay.Models
     public class CorrectiveMessage
     {
         [Key]
-        public int Id { get; set; }
-
-        public int Param_Id { get; set; }
-        [ForeignKey("Param_Id")]
-        public Parameter_Master Parameter_Master { get; set; }
+        public int Id { get; set; }        
         [Required]
         public string Green_Threshold_High { get; set; }
         [Required]
@@ -29,6 +25,8 @@ namespace PiratesBay.Models
         public string Red_Threshold_Low { get; set; }
 
         public string MessageType { get; set; }
+        public string lastupdatedby { get; set; }
+        public DateTime lastupdatedon { get; set; }
 
 
 

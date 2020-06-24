@@ -26,9 +26,10 @@ namespace PiratesBay.Models
         public double Red_Threshold_High { get; set; }
         [Required]
         public double Red_Threshold_Low { get; set; }
-
-        public DateTime LastUpdatedOn { get; set; }
         
+        public string lastupdatedby { get; set; }
+        public DateTime lastupdatedon { get; set; }
+
 
     }
 }

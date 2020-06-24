@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PiratesBay.Migrations
 {
-    public partial class TableChanges : Migration
+    public partial class TableChanges1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -175,7 +175,6 @@ namespace PiratesBay.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Device_Id = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
                     AlternativePhoneNumber = table.Column<string>(nullable: true),
@@ -184,12 +183,6 @@ namespace PiratesBay.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserInfo", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_UserInfo_Device_info_Device_Id",
-                        column: x => x.Device_Id,
-                        principalTable: "Device_info",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserInfo_Role_Role_Id",
                         column: x => x.Role_Id,
@@ -256,11 +249,6 @@ namespace PiratesBay.Migrations
                 column: "Param_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserInfo_Device_Id",
-                table: "UserInfo",
-                column: "Device_Id");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserInfo_Role_Id",
                 table: "UserInfo",
                 column: "Role_Id");
@@ -293,10 +281,10 @@ namespace PiratesBay.Migrations
                 name: "UserInfo");
 
             migrationBuilder.DropTable(
-                name: "Parameter_Masters");
+                name: "Device_info");
 
             migrationBuilder.DropTable(
-                name: "Device_info");
+                name: "Parameter_Masters");
 
             migrationBuilder.DropTable(
                 name: "Role");

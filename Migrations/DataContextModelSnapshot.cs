@@ -265,9 +265,6 @@ namespace PiratesBay.Migrations
                     b.Property<string>("AlternativePhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Device_Id")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -278,8 +275,6 @@ namespace PiratesBay.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Device_Id");
 
                     b.HasIndex("Role_Id");
 
@@ -354,12 +349,6 @@ namespace PiratesBay.Migrations
 
             modelBuilder.Entity("PiratesBay.Models.UserInfo", b =>
                 {
-                    b.HasOne("PiratesBay.Models.Device_info", "Device_Info")
-                        .WithMany()
-                        .HasForeignKey("Device_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("PiratesBay.Models.Role", "Role")
                         .WithMany()
                         .HasForeignKey("Role_Id")

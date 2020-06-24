@@ -3,25 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PiratesBay.Migrations
 {
-    public partial class TableChanges1 : Migration
+    public partial class TableChanges2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "CorrectiveMessage",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MessageType = table.Column<string>(nullable: true),
-                    Parameter = table.Column<string>(nullable: true),
-                    Message = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CorrectiveMessage", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Device_info",
                 columns: table => new
@@ -113,6 +98,32 @@ namespace PiratesBay.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Values", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CorrectiveMessage",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Param_Id = table.Column<int>(nullable: false),
+                    Green_Threshold_High = table.Column<string>(nullable: false),
+                    Green_Threshold_Low = table.Column<string>(nullable: false),
+                    Amber_Threshold_High = table.Column<string>(nullable: false),
+                    Amber_Threshold_Low = table.Column<string>(nullable: false),
+                    Red_Threshold_High = table.Column<string>(nullable: false),
+                    Red_Threshold_Low = table.Column<string>(nullable: false),
+                    MessageType = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CorrectiveMessage", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CorrectiveMessage_Parameter_Masters_Param_Id",
+                        column: x => x.Param_Id,
+                        principalTable: "Parameter_Masters",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -232,6 +243,11 @@ namespace PiratesBay.Migrations
                 name: "IX_CommunicationLog_User_Id",
                 table: "CommunicationLog",
                 column: "User_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CorrectiveMessage_Param_Id",
+                table: "CorrectiveMessage",
+                column: "Param_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ParameterBenchmark_Param_Id",

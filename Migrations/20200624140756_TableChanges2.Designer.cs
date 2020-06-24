@@ -10,8 +10,8 @@ using PiratesBay.Data;
 namespace PiratesBay.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200624115710_TableChanges1")]
-    partial class TableChanges1
+    [Migration("20200624140756_TableChanges2")]
+    partial class TableChanges2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,16 +54,39 @@ namespace PiratesBay.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Message")
+                    b.Property<string>("Amber_Threshold_High")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Amber_Threshold_Low")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Green_Threshold_High")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Green_Threshold_Low")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MessageType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Parameter")
+                    b.Property<int>("Param_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Red_Threshold_High")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Red_Threshold_Low")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Param_Id");
 
                     b.ToTable("CorrectiveMessage");
                 });
@@ -321,6 +344,15 @@ namespace PiratesBay.Migrations
                     b.HasOne("PiratesBay.Models.UserInfo", "UserInfo")
                         .WithMany()
                         .HasForeignKey("User_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PiratesBay.Models.CorrectiveMessage", b =>
+                {
+                    b.HasOne("PiratesBay.Models.Parameter_Master", "Parameter_Master")
+                        .WithMany()
+                        .HasForeignKey("Param_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

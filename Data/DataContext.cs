@@ -37,5 +37,20 @@ namespace PiratesBay.Data
                     new Value { Id=5,Name="Value 102"}
                 );
         }
+
+
+
+
+        public DbSet<PiratesBay.Models.Warning_Corrective_Mapping> Warning_Corrective_Mapping { get; set; }
+
+
+
+
+        public DbSet<PiratesBay.Models.WarningMaster> WarningMaster { get; set; }
+
+
+
+
+        public DbSet<PiratesBay.Models.WarningStateDetails> WarningStateDetails { get; set; }
     }
 }

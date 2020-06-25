@@ -1,0 +1,505 @@
+{
+	"info": {
+		"_postman_id": "17a7ce88-38d2-43c9-8cef-c1b19e6653d0",
+		"name": "PiratesBay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TEST_Values",
+			"item": [
+				{
+					"name": "Values All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/values",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Value Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Test Data 001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/values",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Value Specific",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/DeviceDetails",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"DeviceDetails"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6e0f5c52-2aaf-47d7-9b32-4dacf9c77d96",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8c46175c-b3a5-48cd-9084-595d9c0a9363",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Device_Details",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/DeviceDetails",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"DeviceDetails"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/DeviceDetails/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"DeviceDetails",
+								"1"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"GUID\":\"{{$guid}}\",\r\n    \"Mac_ID\" : \"Details not available\",\r\n    \"Device_Name\" : \"Device 005\",\r\n    \"Country\" : \"India\",\r\n    \"State\" : \"West Bengal\",\r\n    \"Area\" : \"Kolkata\",\r\n    \"Latitude\" : \"01124423\",\r\n    \"Longitude\" : \"5655656\",\r\n    \"Status\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/DeviceDetails",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"DeviceDetails"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\":4,\r\n    \"GUID\":\"{{$guid}}\",\r\n    \"Mac_ID\" : \"Details not available\",\r\n    \"Device_Name\" : \"Device 008\",\r\n    \"Country\" : \"India\",\r\n    \"State\" : \"West Bengal\",\r\n    \"Area\" : \"Kolkata\",\r\n    \"Latitude\" : \"01124423\",\r\n    \"Longitude\" : \"5655656\",\r\n    \"Status\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/DeviceDetails/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"DeviceDetails",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/DeviceDetails/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"DeviceDetails",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User_Details",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/UserDetails",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDetails"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/UserDetails/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDetails",
+								"1"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Role_Id\":1,\r\n    \"Mac_ID\" : \"Details not available\",\r\n    \"Name\" : \"User 005\",\r\n    \"PhoneNumber\" : \"+91 9903752152\",\r\n    \"AlternativePhoneNumber\" : \"+91 9903752152\",\r\n    \"EmailAddress\" : \"atiproy@gmail.com\",\r\n    \"NotificationFrequency\" : \"15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/UserDetails",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDetails"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"role_Id\": 1,\r\n    \"role\": null,\r\n    \"name\": \"User 006\",\r\n    \"phoneNumber\": \"+91 9905754655\",\r\n    \"alternativePhoneNumber\": \"+91 54874651219\",\r\n    \"emailAddress\": \"fnkjsadhfhkjhsd@gmail.com\",\r\n    \"notificationFrequency\": \"15\",\r\n    \"lastupdatedby\": null,\r\n    \"lastupdatedon\": \"0001-01-01T00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/UserDetails/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDetails",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/UserDetails/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDetails",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b23c1af1-0b19-40f7-9176-909c54528b1a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0c71b343-3cf1-498b-948f-9622e753debf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Roles",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Roles"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Roles/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Roles",
+								"1"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RoleName\":\"Care Taker\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Roles",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Roles"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"roleName\": \"Care_Taker\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Roles/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Roles",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Roles/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Roles",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5921d0d6-d821-481a-a072-5d1e2d3c51b9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "474eddf6-1240-45f2-9e27-2a8b3a6eb42a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

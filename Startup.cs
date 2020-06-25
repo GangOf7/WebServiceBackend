@@ -35,15 +35,15 @@ namespace PiratesBay
 
             //********************* SQL Lite Connection *******************************************
 
-            //services.AddDbContext<DataContext>(opt =>
-            //{
-            //    opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
-            //});            
+            services.AddDbContext<DataContext>(opt =>
+            {
+                opt.UseSqlite(Configuration.GetConnectionString("SQLite"));
+            });
 
             //********************* SQL Server Connection *******************************************
 
-            services.AddDbContext<DataContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<DataContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
 
             //********************************-------------*****************************************
 

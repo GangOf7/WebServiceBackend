@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PiratesBay.Migrations
 {
-    public partial class TableChanges : Migration
+    public partial class InitialDBSetup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Green_Threshold_High = table.Column<string>(nullable: false),
                     Green_Threshold_Low = table.Column<string>(nullable: false),
                     Amber_Threshold_High = table.Column<string>(nullable: false),
@@ -33,7 +33,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     GUID = table.Column<string>(nullable: false),
                     Mac_Id = table.Column<string>(nullable: true),
                     Device_Name = table.Column<string>(nullable: false),
@@ -56,7 +56,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Param_Name = table.Column<string>(nullable: false),
                     CreatedBy = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
@@ -74,7 +74,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     RoleName = table.Column<string>(nullable: true),
                     lastupdatedby = table.Column<string>(nullable: true),
                     lastupdatedon = table.Column<DateTime>(nullable: false)
@@ -89,7 +89,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Device_Id = table.Column<int>(nullable: false),
                     User_Id = table.Column<int>(nullable: false),
                     lastupdatedby = table.Column<string>(nullable: true),
@@ -105,7 +105,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -118,7 +118,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     CorrectiveMessage_ID = table.Column<int>(nullable: false),
                     Warning_ID = table.Column<int>(nullable: false),
                     lastupdatedby = table.Column<string>(nullable: true),
@@ -134,7 +134,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Message = table.Column<string>(nullable: true),
                     MessageType = table.Column<string>(nullable: true),
                     DataEntryTime = table.Column<DateTime>(nullable: false),
@@ -156,7 +156,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Param_Id = table.Column<int>(nullable: false),
                     Green_Threshold_High = table.Column<double>(nullable: false),
                     Green_Threshold_Low = table.Column<double>(nullable: false),
@@ -183,7 +183,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Device_Id = table.Column<int>(nullable: false),
                     Param_Id = table.Column<int>(nullable: false),
                     Input_Value = table.Column<double>(nullable: false),
@@ -211,7 +211,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Role_Id = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
@@ -237,7 +237,7 @@ namespace PiratesBay.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     User_Id = table.Column<int>(nullable: false),
                     warning_corrective_mapping_ID = table.Column<int>(nullable: false),
                     Message = table.Column<string>(nullable: true),

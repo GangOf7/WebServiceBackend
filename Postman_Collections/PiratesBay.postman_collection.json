@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "17a7ce88-38d2-43c9-8cef-c1b19e6653d0",
+		"_postman_id": "94be9be6-744f-41a8-969b-d886952a8bd8",
 		"name": "PiratesBay",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -76,7 +76,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6e0f5c52-2aaf-47d7-9b32-4dacf9c77d96",
+						"id": "1da718aa-62dd-4046-9ba9-4b9644cdc1dc",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -86,7 +86,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8c46175c-b3a5-48cd-9084-595d9c0a9363",
+						"id": "3043723a-2389-4855-b5df-01b5f178a772",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -338,7 +338,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b23c1af1-0b19-40f7-9176-909c54528b1a",
+						"id": "120511a5-13d3-4195-8829-30c28aa2a0b4",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -348,7 +348,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0c71b343-3cf1-498b-948f-9622e753debf",
+						"id": "3e7c0de3-1610-4965-a2fe-c247b96eebf9",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -480,7 +480,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5921d0d6-d821-481a-a072-5d1e2d3c51b9",
+						"id": "842bd642-9635-46f6-ba3c-08d9542e5fca",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -490,7 +490,1285 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "474eddf6-1240-45f2-9e27-2a8b3a6eb42a",
+						"id": "349d3907-b994-47ad-848f-f11a04a8d0ed",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Parameters",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Parameters",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Parameters"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Parameters/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Parameters",
+								"2"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Param_Name\":\"Care Taker\",\r\n    \"Status\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Parameter_Master",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Parameter_Master"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n        \"id\":2,\r\n        \"param_Name\": \"Care Taker3\",\r\n        \"createdBy\": \"Arkyab\",\r\n        \"createdOn\": \"2020-07-01T00:00:00\",\r\n        \"status\": true,\r\n        \"lastupdatedby\": \"Arkya\",\r\n        \"lastupdatedon\": \"2020-07-01T00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Parameters/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Parameters",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Parameters/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Parameters",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2e58f770-87b7-4432-9925-6c34fb27300e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1758abfc-99b1-4983-b14b-d03a91a584a3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ParameterMarks",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Parameter_Master",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Parameter_Master"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Parameter_Master/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Parameter_Master",
+								"1"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"Param_Id\":1,\r\n    \"Green_Threshold_High\": 1,\r\n    \"Green_Threshold_Low\":2,\r\n    \"Amber_Threshold_High\":3,\r\n    \"Amber_Threshold_Low\":4,\r\n    \"Red_Threshold_High\":5,\r\n    \"Red_Threshold_Low\":6,\r\n    \"lastupdatedby\":\"Arkya\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/ParameterMarks",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"ParameterMarks"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Param_Id\":1,\r\n    \"Green_Threshold_High\": 1.1,\r\n    \"Green_Threshold_Low\":2.2,\r\n    \"Amber_Threshold_High\":3.3,\r\n    \"Amber_Threshold_Low\":4.4,\r\n    \"Red_Threshold_High\":5.5,\r\n    \"Red_Threshold_Low\":6.6,\r\n    \"lastupdatedby\":\"Arkya\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/ParameterMarks/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"ParameterMarks",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/ParameterMarks/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"ParameterMarks",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4cebd2f7-6398-49ed-8117-b305850c6e0c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "721cafd2-a98b-4b09-967e-e44157df1ba1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Correctives",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Correctives",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Correctives"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Correctives/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Correctives",
+								"2"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"CorrectiveMessage_ID\":1,\r\n    \"Warning_ID\": 1,\r\n    \"lastupdatedby\":\"Arkya\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Correctives",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Correctives"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n \"CorrectiveMessage_ID\":2,\r\n    \"Warning_ID\": 2,\r\n    \"lastupdatedby\":\"Arkyadd\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Correctives/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Correctives",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Correctives/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Correctives",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7013aaba-ab16-4916-917b-3367153bb0ca",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "46808707-df8d-471c-ae6b-a6262de8b373",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CorrectiveMessages",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/CorrectiveMessages",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"CorrectiveMessages"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/CorrectiveMessages/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"CorrectiveMessages",
+								"2"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n  \r\n    \"Green_Threshold_High\": \"Abc\",\r\n    \"Green_Threshold_Low\":\"Abc\",\r\n    \"Amber_Threshold_High\":\"Abc\",\r\n    \"Amber_Threshold_Low\":\"Abc\",\r\n    \"Red_Threshold_High\":\"Abc\",\r\n    \"Red_Threshold_Low\":\"Abc\",\r\n    \"lastupdatedby\":\"Arkya\",\r\n    \"lastupdatedon\":\"2020-07-01\",\r\n    \"MessageType\":\"Test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/CorrectiveMessages",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"CorrectiveMessages"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n \"Green_Threshold_High\": \"Abc1\",\r\n    \"Green_Threshold_Low\":\"Abc1\",\r\n    \"Amber_Threshold_High\":\"Abc\",\r\n    \"Amber_Threshold_Low\":\"Abc\",\r\n    \"Red_Threshold_High\":\"Abc\",\r\n    \"Red_Threshold_Low\":\"Abc\",\r\n    \"lastupdatedby\":\"Arkya\",\r\n    \"lastupdatedon\":\"2020-07-01\",\r\n    \"MessageType\":\"Test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/CorrectiveMessages/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"CorrectiveMessages",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/CorrectiveMessages/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"CorrectiveMessages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5dc276ba-d617-4e56-a8d8-4c4151c2b0ce",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cdd947ae-e91b-4854-9955-efa3ae0269d7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ActualData",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/ActualData",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"ActualData"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/ActualData/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"ActualData",
+								"2"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"Device_Id\":1,\r\n    \"Param_Id\":1,\r\n    \"Input_Value\": 1.1,\r\n    \"DataEntryTime\":\"2020-07-01\"\r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/ActualData",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"ActualData"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"Device_Id\":1,\r\n    \"Param_Id\":1,\r\n    \"Input_Value\": 1.1,\r\n    \"DataEntryTime\":\"2020-07-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/ActualData/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"ActualData",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/ActualData/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"ActualData",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ea0e2ccd-2586-49d1-b8c7-f382ce6050f1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e275e177-9a76-4f99-b9a3-028a78850b56",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Values",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Values",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Values"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Values/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Values",
+								"2"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"Name\": \"ArkyaB\"\r\n    \r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Values",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Values"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"Device_Id\":1,\r\n    \"Param_Id\":1,\r\n    \"Input_Value\": 1.1,\r\n    \"DataEntryTime\":\"2020-07-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Values/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Values",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Values/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Values",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3602c119-0f23-4e1f-8e3f-c908ae4505f7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6143642f-d22b-412d-bdd2-291de054da0e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Warnings",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Warnings",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Warnings"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Warnings/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Warnings",
+								"2"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"Warning_message\":\"Danger\",\r\n    \"lastupdatedby\":\"ArkyaB\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n    \r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Warnings",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Warnings"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"Warning_message\":\"Danger\",\r\n    \"lastupdatedby\":\"ArkyaB\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/Warnings/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Warnings",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/Warnings/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"Warnings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d5ad9c9f-3094-4dd9-a241-49f2d98a04c4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "40877051-9b89-466f-8f08-e26e46a35398",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "WarningState",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/WarningState",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"WarningState"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/WarningState/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"WarningState",
+								"2"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Warning_ID\":1,\r\n    \"Param_Id\":1,\r\n    \"Param_Greaterthan_val\":1,\r\n    \"Param_LessThan_val\":1,\r\n    \"lastupdatedby\":\"ArkyaB\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n    \r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/WarningState",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"WarningState"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"Warning_ID\":1,\r\n    \"Param_Id\":1,\r\n    \"Param_Greaterthan_val\":1,\r\n    \"Param_LessThan_val\":1,\r\n    \"lastupdatedby\":\"ArkyaB\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/WarningState/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"WarningState",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/WarningState/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"WarningState",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e7e62011-dae1-4abe-97a1-e410554d845d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9daf7e1d-9695-43c4-a6a8-383746d39e4a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "GetUserDeviceMap",
+			"item": [
+				{
+					"name": "ALL Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/UserDeviceMap",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDeviceMap"
+							]
+						},
+						"description": "To Get all the details available in the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/UserDeviceMap/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDeviceMap",
+								"2"
+							]
+						},
+						"description": "To Get a specific details based on the ID"
+					},
+					"response": []
+				},
+				{
+					"name": "New Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Device_Id\":1,\r\n    \"User_Id\":1,\r\n    \"lastupdatedby\":\"ArkyaB\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n    \r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/UserDeviceMap",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDeviceMap"
+							]
+						},
+						"description": "Post request to insert the new data into the table"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Existing Data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"Device_Id\":2,\r\n    \"User_Id\":1,\r\n    \"lastupdatedby\":\"ArkyaBh\",\r\n    \"lastupdatedon\":\"2020-07-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/UserDeviceMap/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDeviceMap",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details to be Removed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/UserDeviceMap/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"UserDeviceMap",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "68eb52bd-49fc-4d22-8b55-9d5c7698c77a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5d38431e-1804-4812-9d0f-9d14010dfb39",
 						"type": "text/javascript",
 						"exec": [
 							""

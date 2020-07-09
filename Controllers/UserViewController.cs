@@ -38,7 +38,7 @@ namespace PiratesBay.Controllers
                                             .ToListAsync();
 
                 var paramBenchMark = await _context.ParameterBenchmark.ToListAsync();
-                var correctiveActions = await _context.cor
+                //var correctiveActions = await _context.cor
 
                 var userView = await _context.UserInfo
                                             .Where(w => w.Id == id)

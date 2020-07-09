@@ -134,6 +134,63 @@ namespace PiratesBay.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Device_info");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Area = "Sundarban",
+                            Country = "India",
+                            Device_Name = "HMS Interceptor",
+                            GUID = "00000000-0000-0000-0000-000000000000",
+                            State = "West Bengal",
+                            Status = true,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Area = "Bantala",
+                            Country = "India",
+                            Device_Name = "The Queen Anne's Revenge",
+                            GUID = "00000000-0000-0000-0000-000000000000",
+                            State = "West Bengal",
+                            Status = true,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Area = "Kolkata",
+                            Country = "India",
+                            Device_Name = "The Silent Mary",
+                            GUID = "00000000-0000-0000-0000-000000000000",
+                            State = "West Bengal",
+                            Status = true,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Area = "Hoogly",
+                            Country = "India",
+                            Device_Name = "Empress",
+                            GUID = "00000000-0000-0000-0000-000000000000",
+                            State = "West Bengal",
+                            Status = true,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Area = "Midnapore",
+                            Country = "India",
+                            Device_Name = "Lord Beckett's Armada",
+                            GUID = "00000000-0000-0000-0000-000000000000",
+                            State = "West Bengal",
+                            Status = true,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("PiratesBay.Models.EventLog", b =>
@@ -229,6 +286,48 @@ namespace PiratesBay.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Parameter_Masters");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Param_Name = "Temperature",
+                            Status = false,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Param_Name = "PH Level",
+                            Status = false,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Param_Name = "Partical Level",
+                            Status = false,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Param_Name = "Oxygen Level",
+                            Status = false,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Param_Name = "Salinity",
+                            Status = false,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("PiratesBay.Models.Role", b =>
@@ -249,6 +348,32 @@ namespace PiratesBay.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Role");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            RoleName = "Administrator",
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            RoleName = "General User",
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            RoleName = "Owner",
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            RoleName = "Care Taker",
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("PiratesBay.Models.SensorData", b =>
@@ -299,6 +424,43 @@ namespace PiratesBay.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserDeviceMapping");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Device_Id = 1,
+                            User_Id = 1,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Device_Id = 2,
+                            User_Id = 1,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Device_Id = 3,
+                            User_Id = 1,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Device_Id = 4,
+                            User_Id = 1,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Device_Id = 5,
+                            User_Id = 1,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("PiratesBay.Models.UserInfo", b =>
@@ -336,6 +498,22 @@ namespace PiratesBay.Migrations
                     b.HasIndex("Role_Id");
 
                     b.ToTable("UserInfo");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Will Turner",
+                            Role_Id = 1,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Elizabeth Swann",
+                            Role_Id = 2,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("PiratesBay.Models.Value", b =>
@@ -368,6 +546,59 @@ namespace PiratesBay.Migrations
                             Id = 5,
                             Name = "Value 102"
                         });
+                });
+
+            modelBuilder.Entity("PiratesBay.Models.WarningMaster", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Warning_message")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WarningMaster");
+                });
+
+            modelBuilder.Entity("PiratesBay.Models.WarningStateDetails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Param_Greaterthan_val")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("Param_Id")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Param_LessThan_val")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("Warning_ID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("lastupdatedby")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("lastupdatedon")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Param_Id");
+
+                    b.HasIndex("Warning_ID");
+
+                    b.ToTable("WarningStateDetails");
                 });
 
             modelBuilder.Entity("PiratesBay.Models.Warning_Corrective_Mapping", b =>
@@ -446,6 +677,21 @@ namespace PiratesBay.Migrations
                     b.HasOne("PiratesBay.Models.Role", "Role")
                         .WithMany()
                         .HasForeignKey("Role_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PiratesBay.Models.WarningStateDetails", b =>
+                {
+                    b.HasOne("PiratesBay.Models.Parameter_Master", "Parameter_Master")
+                        .WithMany()
+                        .HasForeignKey("Param_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PiratesBay.Models.WarningMaster", "WarningMaster")
+                        .WithMany()
+                        .HasForeignKey("Warning_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

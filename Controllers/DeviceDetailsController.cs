@@ -94,8 +94,9 @@ namespace PiratesBay.Controllers
             {
                 return NotFound();
             }
-
+            var device_Mapping = await _context.UserDeviceMapping.Where(w => w.Device_Id == id).FirstOrDefaultAsync();
             _context.Device_info.Remove(device_info);
+            _context.UserDeviceMapping.Remove(device_Mapping);
             await _context.SaveChangesAsync();
 
             return device_info;

@@ -557,13 +557,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/api/Parameter_Master",
+							"raw": "{{URL}}/api/Parameters",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"api",
-								"Parameter_Master"
+								"Parameters"
 							]
 						},
 						"description": "Post request to insert the new data into the table"
@@ -1117,7 +1117,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \r\n    \"Device_Id\":1,\r\n    \"Param_Id\":1,\r\n    \"Input_Value\": 1.1,\r\n    \"DataEntryTime\":\"2020-07-01\"\r\n \r\n}",
+							"raw": "{\r\n    \r\n    \"Device_Id\":{{Device_Id}},\r\n    \"Param_Id\":{{Parameter_Id}},\r\n    \"Input_Value\": {{Input_Value}},\r\n    \"DataEntryTime\":\"2020-07-01T00:00:00\"\r\n \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1774,6 +1774,42 @@
 							""
 						]
 					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Views",
+			"item": [
+				{
+					"name": "UserView",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device Settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/DeviceSettings/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"DeviceSettings",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}

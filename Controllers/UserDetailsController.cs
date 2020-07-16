@@ -97,6 +97,13 @@ namespace PiratesBay.Controllers
             }
 
             _context.UserInfo.Remove(userInfo);
+
+            var mappings = await _context.UserDeviceMapping.Where(w => w.User_Id == id).ToListAsync();
+            if (mappings.Count > 0)
+            {
+                _context.UserDeviceMapping.RemoveRange(mappings);
+            }
+
             await _context.SaveChangesAsync();
 
             return userInfo;

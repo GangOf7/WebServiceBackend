@@ -14,12 +14,12 @@ namespace PiratesBay.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SesorDataSetController : ControllerBase
+    public class SensorDataSetController : ControllerBase
     {
         private readonly DataContext _Context;
-        public ILogger<SesorDataSetController> _Logger { get; }
+        public ILogger<SensorDataSetController> _Logger { get; }
 
-        public SesorDataSetController(DataContext Context, ILogger<SesorDataSetController> logger)
+        public SensorDataSetController(DataContext Context, ILogger<SensorDataSetController> logger)
         {
             _Context = Context;
             _Logger = logger;
@@ -29,6 +29,12 @@ namespace PiratesBay.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] SensorResponse response)
         {
+            var existingData = await _Context.SensorData
+                                    .Where(w => w.Device_Id == response.DeviceId && w.DataEntryTime == response.dateTime)
+                                    .ToListAsync();
+            if (existingData.Count > 0) return BadRequest("Data already present with this date and time for this device");
+
+
             foreach (var paramData in response.DataSet)
             {
                 SensorData sensorData = new SensorData

@@ -14,6 +14,7 @@ namespace PiratesBay.Models.ViewModel
         public string Area { get; set; }
         public DateTime lastupdatedon { get; set; }
         public string Color { get; set; }
+        public bool Status { get; set; }
 
         public List<ParametersValue> ParameterValues { get; set; }
 

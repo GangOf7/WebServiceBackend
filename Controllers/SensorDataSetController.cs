@@ -44,7 +44,7 @@ namespace PiratesBay.Controllers
                     Input_Value = paramData.Value,
                     Param_Id = paramData.ParameterID
                 };
-                _Context.SensorData.Add(sensorData);
+                _Context.SensorData.Add(sensorData);    
             }
             var deviceInfo = await _Context.Device_info.FindAsync(response.DeviceId);
             deviceInfo.lastupdatedon = response.dateTime;

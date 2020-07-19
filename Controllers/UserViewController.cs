@@ -61,6 +61,7 @@ namespace PiratesBay.Controllers
                         State = i.State,
                         Id = i.Id,
                         Color = "Green",
+                        Status=i.Status,
                         ParameterValues = new List<ParametersValue>()
                     }).FirstOrDefault();
 

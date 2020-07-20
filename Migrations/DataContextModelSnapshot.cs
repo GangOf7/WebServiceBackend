@@ -256,6 +256,68 @@ namespace PiratesBay.Migrations
                     b.HasIndex("Param_Id");
 
                     b.ToTable("ParameterBenchmark");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Amber_Threshold_High = 35.0,
+                            Amber_Threshold_Low = 25.0,
+                            Green_Threshold_High = 0.0,
+                            Green_Threshold_Low = 0.0,
+                            Param_Id = 1,
+                            Red_Threshold_High = 40.0,
+                            Red_Threshold_Low = 20.0,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Amber_Threshold_High = 8.5,
+                            Amber_Threshold_Low = 7.0,
+                            Green_Threshold_High = 0.0,
+                            Green_Threshold_Low = 0.0,
+                            Param_Id = 2,
+                            Red_Threshold_High = 9.0,
+                            Red_Threshold_Low = 6.0,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Amber_Threshold_High = 600.0,
+                            Amber_Threshold_Low = 400.0,
+                            Green_Threshold_High = 0.0,
+                            Green_Threshold_Low = 0.0,
+                            Param_Id = 3,
+                            Red_Threshold_High = 800.0,
+                            Red_Threshold_Low = 200.0,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Amber_Threshold_High = 6.0,
+                            Amber_Threshold_Low = 4.0,
+                            Green_Threshold_High = 0.0,
+                            Green_Threshold_Low = 0.0,
+                            Param_Id = 4,
+                            Red_Threshold_High = 10.0,
+                            Red_Threshold_Low = 2.0,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Amber_Threshold_High = 2.0,
+                            Amber_Threshold_Low = 1.0,
+                            Green_Threshold_High = 0.0,
+                            Green_Threshold_Low = 0.0,
+                            Param_Id = 5,
+                            Red_Threshold_High = 0.0,
+                            Red_Threshold_Low = 3.0,
+                            lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("PiratesBay.Models.Parameter_Master", b =>
@@ -277,6 +339,9 @@ namespace PiratesBay.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Unit")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("lastupdatedby")
                         .HasColumnType("TEXT");
 
@@ -294,6 +359,7 @@ namespace PiratesBay.Migrations
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Param_Name = "Temperature",
                             Status = false,
+                            Unit = "'C",
                             lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -302,30 +368,34 @@ namespace PiratesBay.Migrations
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Param_Name = "PH Level",
                             Status = false,
+                            Unit = "pH",
                             lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Param_Name = "Partical Level",
+                            Param_Name = "Total Dissolved Solid",
                             Status = false,
+                            Unit = "mg/Lt",
                             lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Param_Name = "Oxygen Level",
+                            Param_Name = "Dissolved Oxygen",
                             Status = false,
+                            Unit = "mg/Lt",
                             lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Param_Name = "Salinity",
+                            Param_Name = "Ammonia Level",
                             Status = false,
+                            Unit = "mg/Lt",
                             lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });

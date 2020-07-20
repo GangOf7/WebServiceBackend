@@ -93,7 +93,7 @@ namespace PiratesBay.Controllers
                 _Logger.LogInformation($"Testing ValuesController Post passed for value{value.Name}");
 
 
-                _Communicate.SendSMS(value);   // ASYNC call, not awaited
+                await _Communicate.SendSMS(value);   // ASYNC call, not awaited
 
 
                 return Created("New data added successfully", value);

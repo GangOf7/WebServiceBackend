@@ -17,5 +17,6 @@ namespace PiratesBay.Models
         public bool Status { get; set; }
         public string lastupdatedby { get; set; }
         public DateTime lastupdatedon { get; set; }
+        public string Unit { get; set; }
     }
 }

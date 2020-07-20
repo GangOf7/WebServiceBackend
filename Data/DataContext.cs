@@ -71,12 +71,22 @@ namespace PiratesBay.Data
 
             builder.Entity<Parameter_Master>()
                 .HasData(
-                new Parameter_Master { Id = 1, Param_Name = "Temperature" },
-                new Parameter_Master { Id = 2, Param_Name = "PH Level" },
-                new Parameter_Master { Id = 3, Param_Name = "Partical Level" },
-                new Parameter_Master { Id = 4, Param_Name = "Oxygen Level" },
-                new Parameter_Master { Id = 5, Param_Name = "Salinity" }
+                new Parameter_Master { Id = 1, Param_Name = "Temperature", Unit = "'C" },
+                new Parameter_Master { Id = 2, Param_Name = "PH Level", Unit = "pH" },
+                new Parameter_Master { Id = 3, Param_Name = "Total Dissolved Solid", Unit = "mg/Lt" },
+                new Parameter_Master { Id = 4, Param_Name = "Dissolved Oxygen", Unit = "mg/Lt" },
+                new Parameter_Master { Id = 5, Param_Name = "Ammonia Level", Unit = "mg/Lt" }
                 );
+
+            builder.Entity<ParameterBenchmark>()
+                .HasData(
+                new ParameterBenchmark { Id = 1, Param_Id = 1, Amber_Threshold_High = 35, Amber_Threshold_Low = 25, Red_Threshold_High = 40, Red_Threshold_Low = 20 },
+                new ParameterBenchmark { Id = 2, Param_Id = 2, Amber_Threshold_High = 8.5, Amber_Threshold_Low = 7, Red_Threshold_High = 9, Red_Threshold_Low = 6 },
+                new ParameterBenchmark { Id = 3, Param_Id = 3, Amber_Threshold_High = 600, Amber_Threshold_Low = 400, Red_Threshold_High = 800, Red_Threshold_Low = 200 },
+                new ParameterBenchmark { Id = 4, Param_Id = 4, Amber_Threshold_High = 6, Amber_Threshold_Low = 4, Red_Threshold_High = 10, Red_Threshold_Low = 2 },
+                new ParameterBenchmark { Id = 5, Param_Id = 5, Amber_Threshold_High = 2, Amber_Threshold_Low = 1, Red_Threshold_High = 0, Red_Threshold_Low = 3 }
+                );
+
 
         }
 

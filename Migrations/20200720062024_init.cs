@@ -62,7 +62,8 @@ namespace PiratesBay.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Status = table.Column<bool>(nullable: false),
                     lastupdatedby = table.Column<string>(nullable: true),
-                    lastupdatedon = table.Column<DateTime>(nullable: false)
+                    lastupdatedon = table.Column<DateTime>(nullable: false),
+                    Unit = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -333,28 +334,28 @@ namespace PiratesBay.Migrations
 
             migrationBuilder.InsertData(
                 table: "Parameter_Masters",
-                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "lastupdatedby", "lastupdatedon" },
-                values: new object[] { 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Temperature", false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "Unit", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Temperature", false, "'C", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "Parameter_Masters",
-                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "lastupdatedby", "lastupdatedon" },
-                values: new object[] { 2, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "PH Level", false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "Unit", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 2, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "PH Level", false, "pH", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "Parameter_Masters",
-                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "lastupdatedby", "lastupdatedon" },
-                values: new object[] { 3, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Partical Level", false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "Unit", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 3, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Total Dissolved Solid", false, "mg/Lt", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "Parameter_Masters",
-                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "lastupdatedby", "lastupdatedon" },
-                values: new object[] { 4, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Oxygen Level", false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "Unit", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 4, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dissolved Oxygen", false, "mg/Lt", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "Parameter_Masters",
-                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "lastupdatedby", "lastupdatedon" },
-                values: new object[] { 5, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Salinity", false, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                columns: new[] { "Id", "CreatedBy", "CreatedOn", "Param_Name", "Status", "Unit", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 5, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ammonia Level", false, "mg/Lt", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "Role",
@@ -415,6 +416,31 @@ namespace PiratesBay.Migrations
                 table: "Values",
                 columns: new[] { "Id", "Name" },
                 values: new object[] { 5, "Value 102" });
+
+            migrationBuilder.InsertData(
+                table: "ParameterBenchmark",
+                columns: new[] { "Id", "Amber_Threshold_High", "Amber_Threshold_Low", "Green_Threshold_High", "Green_Threshold_Low", "Param_Id", "Red_Threshold_High", "Red_Threshold_Low", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 1, 35.0, 25.0, 0.0, 0.0, 1, 40.0, 20.0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+
+            migrationBuilder.InsertData(
+                table: "ParameterBenchmark",
+                columns: new[] { "Id", "Amber_Threshold_High", "Amber_Threshold_Low", "Green_Threshold_High", "Green_Threshold_Low", "Param_Id", "Red_Threshold_High", "Red_Threshold_Low", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 2, 8.5, 7.0, 0.0, 0.0, 2, 9.0, 6.0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+
+            migrationBuilder.InsertData(
+                table: "ParameterBenchmark",
+                columns: new[] { "Id", "Amber_Threshold_High", "Amber_Threshold_Low", "Green_Threshold_High", "Green_Threshold_Low", "Param_Id", "Red_Threshold_High", "Red_Threshold_Low", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 3, 600.0, 400.0, 0.0, 0.0, 3, 800.0, 200.0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+
+            migrationBuilder.InsertData(
+                table: "ParameterBenchmark",
+                columns: new[] { "Id", "Amber_Threshold_High", "Amber_Threshold_Low", "Green_Threshold_High", "Green_Threshold_Low", "Param_Id", "Red_Threshold_High", "Red_Threshold_Low", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 4, 6.0, 4.0, 0.0, 0.0, 4, 10.0, 2.0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+
+            migrationBuilder.InsertData(
+                table: "ParameterBenchmark",
+                columns: new[] { "Id", "Amber_Threshold_High", "Amber_Threshold_Low", "Green_Threshold_High", "Green_Threshold_Low", "Param_Id", "Red_Threshold_High", "Red_Threshold_Low", "lastupdatedby", "lastupdatedon" },
+                values: new object[] { 5, 2.0, 1.0, 0.0, 0.0, 5, 0.0, 3.0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "UserInfo",

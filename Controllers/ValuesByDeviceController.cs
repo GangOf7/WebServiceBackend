@@ -47,7 +47,11 @@ namespace PiratesBay.Controllers
                                                     Longitude = s.Longitude,
                                                     State = s.State,
                                                     Status = s.Status,
-                                                    ParameterNames = SensorDetails.Select(s => s.Parameter_Master.Param_Name).Distinct().ToList(),
+                                                    ParameterNames = SensorDetails.Select(s => new ParametersValue
+                                                    {
+                                                        Name = s.Parameter_Master.Param_Name,
+                                                        Unit = s.Parameter_Master.Unit
+                                                    }).Distinct().ToList(),
                                                     Entries = new List<EntryTime>()
                                                 }).FirstOrDefaultAsync();
 

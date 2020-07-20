@@ -61,7 +61,7 @@ namespace PiratesBay.Controllers
                         State = i.State,
                         Id = i.Id,
                         Color = "Green",
-                        Status=i.Status,
+                        Status = i.Status,
                         ParameterValues = new List<ParametersValue>()
                     }).FirstOrDefault();
 
@@ -84,10 +84,13 @@ namespace PiratesBay.Controllers
                                                 Action = false
                                             }).FirstOrDefault();
 
-                        paramDetails.Name = await _context.Parameter_Masters
+                        var paramInfo = await _context.Parameter_Masters
                                                     .Where(w => w.Id == param)
-                                                    .Select(s => s.Param_Name)
                                                     .FirstOrDefaultAsync();
+
+                        paramDetails.Name = paramInfo.Param_Name;
+                        paramDetails.Unit = paramInfo.Unit;
+
 
                         var HighRed = paramBenchMark.Where(w => w.Param_Id == param).Select(s => s.Red_Threshold_High).FirstOrDefault();
                         var LowRed = paramBenchMark.Where(w => w.Param_Id == param).Select(s => s.Red_Threshold_Low).FirstOrDefault();
@@ -107,6 +110,17 @@ namespace PiratesBay.Controllers
 
 
                         deviceDetails.ParameterValues.Add(paramDetails);
+                    }
+
+                    var RedValues = deviceDetails.ParameterValues.Where(w => w.Color == "Red").ToList();
+                    var AmberValues = deviceDetails.ParameterValues.Where(w => w.Color == "Amber").ToList();
+                    if (RedValues.Count > 0)
+                    {
+                        deviceDetails.Color = "Red";
+                    }
+                    else if (AmberValues.Count > 0)
+                    {
+                        deviceDetails.Color = "Amber";
                     }
 
                     userView.DeviceDetail.Add(deviceDetails);

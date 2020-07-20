@@ -9,7 +9,7 @@ using PiratesBay.Data;
 namespace PiratesBay.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200720062024_init")]
+    [Migration("20200720073552_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -316,8 +316,8 @@ namespace PiratesBay.Migrations
                             Green_Threshold_High = 0.0,
                             Green_Threshold_Low = 0.0,
                             Param_Id = 5,
-                            Red_Threshold_High = 0.0,
-                            Red_Threshold_Low = 3.0,
+                            Red_Threshold_High = 3.0,
+                            Red_Threshold_Low = 0.0,
                             lastupdatedon = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });

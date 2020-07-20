@@ -440,7 +440,7 @@ namespace PiratesBay.Migrations
             migrationBuilder.InsertData(
                 table: "ParameterBenchmark",
                 columns: new[] { "Id", "Amber_Threshold_High", "Amber_Threshold_Low", "Green_Threshold_High", "Green_Threshold_Low", "Param_Id", "Red_Threshold_High", "Red_Threshold_Low", "lastupdatedby", "lastupdatedon" },
-                values: new object[] { 5, 2.0, 1.0, 0.0, 0.0, 5, 0.0, 3.0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                values: new object[] { 5, 2.0, 1.0, 0.0, 0.0, 5, 3.0, 0.0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "UserInfo",

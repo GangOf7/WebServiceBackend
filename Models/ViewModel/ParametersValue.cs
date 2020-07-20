@@ -13,6 +13,7 @@ namespace PiratesBay.Models.ViewModel
         public string Color { get; set; }
         public bool Action { get; set; }
         public string correctiveAction { get; set; }
+        public string Unit { get; set; }
 
     }
 }

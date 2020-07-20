@@ -84,7 +84,7 @@ namespace PiratesBay.Data
                 new ParameterBenchmark { Id = 2, Param_Id = 2, Amber_Threshold_High = 8.5, Amber_Threshold_Low = 7, Red_Threshold_High = 9, Red_Threshold_Low = 6 },
                 new ParameterBenchmark { Id = 3, Param_Id = 3, Amber_Threshold_High = 600, Amber_Threshold_Low = 400, Red_Threshold_High = 800, Red_Threshold_Low = 200 },
                 new ParameterBenchmark { Id = 4, Param_Id = 4, Amber_Threshold_High = 6, Amber_Threshold_Low = 4, Red_Threshold_High = 10, Red_Threshold_Low = 2 },
-                new ParameterBenchmark { Id = 5, Param_Id = 5, Amber_Threshold_High = 2, Amber_Threshold_Low = 1, Red_Threshold_High = 0, Red_Threshold_Low = 3 }
+                new ParameterBenchmark { Id = 5, Param_Id = 5, Amber_Threshold_High = 2, Amber_Threshold_Low = 1, Red_Threshold_High = 3, Red_Threshold_Low = 0 }
                 );
 
 

@@ -16,7 +16,7 @@ namespace PiratesBay.Models.ViewModel
         public string Longitude { get; set; }
         public bool Status { get; set; }
         public DateTime lastupdatedon { get; set; }
-        public List<string> ParameterNames { get; set; }
+        public List<ParametersValue> ParameterNames { get; set; }
 
         public List<EntryTime> Entries { get; set; }
 

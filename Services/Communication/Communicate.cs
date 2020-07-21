@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using PiratesBay.Data;
 using PiratesBay.Models;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,25 @@ namespace PiratesBay.Services.Communication
 {
     public class Communicate
     {
+        private readonly DataContext _dataContext;
+
         public TwilioSettings _TwilioOptions { get; }
-        public Communicate(IOptions<TwilioSettings> twilioSettings)
+        public Communicate(IOptions<TwilioSettings> twilioSettings, DataContext dataContext)
         {
             _TwilioOptions = twilioSettings.Value;
+            _dataContext = dataContext;
         }
+
+        public async Task ValidateSensorData()
+        {
+
+        }
+
+
+
+
+
+
         public async Task SendSMS(Value value)
         {
             TwilioClient.Init(_TwilioOptions.AccountSid, _TwilioOptions.AuthToken);

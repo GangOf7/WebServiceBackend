@@ -28,51 +28,53 @@ namespace PiratesBay.Controllers
             _communicate = communicate;
         }
 
-        private class WarningParameters
-        {
-            public int ParamID { get; set; }
-            public string ParamName { get; set; }
-            public double CurrentValue { get; set; }
-            public double Benchmark { get; set; }
-        }
-
 
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] SensorResponse response)
         {
-            var existingData = await _Context.SensorData
+            try
+            {
+                var existingData = await _Context.SensorData
                                     .Where(w => w.Device_Id == response.DeviceId && w.DataEntryTime == response.dateTime)
                                     .ToListAsync();
-            if (existingData.Count > 0) return BadRequest("Data already present with this date and time for this device");
+                if (existingData.Count > 0) return BadRequest("Data already present with this date and time for this device");
 
 
-            foreach (var paramData in response.DataSet)
-            {
-                SensorData sensorData = new SensorData
+                foreach (var paramData in response.DataSet)
                 {
-                    DataEntryTime = response.dateTime,
-                    Device_Id = response.DeviceId,
-                    Input_Value = paramData.Value,
-                    Param_Id = paramData.ParameterID
+                    SensorData sensorData = new SensorData
+                    {
+                        DataEntryTime = response.dateTime,
+                        Device_Id = response.DeviceId,
+                        Input_Value = paramData.Value,
+                        Param_Id = paramData.ParameterID
+                    };
+                    _Context.SensorData.Add(sensorData);
+                }
+                var deviceInfo = await _Context.Device_info.FindAsync(response.DeviceId);
+                deviceInfo.lastupdatedon = response.dateTime;
+                deviceInfo.GUID = Guid.NewGuid().ToString();
+
+                _Context.Device_info.Update(deviceInfo);
+
+                await _Context.SaveChangesAsync();
+
+                SensorReply sensorReply = new SensorReply
+                {
+                    deviceID = response.DeviceId,
+                    NewGuid = deviceInfo.GUID,
+                    Interval = 30,
+                    ThresHoldSets = await _Context.ParameterBenchmark.ToListAsync()
                 };
-                _Context.SensorData.Add(sensorData);
+
+                return Ok(sensorReply);
             }
-            var deviceInfo = await _Context.Device_info.FindAsync(response.DeviceId);
-            deviceInfo.lastupdatedon = response.dateTime;
-            deviceInfo.GUID = Guid.NewGuid().ToString();
-            _Context.Device_info.Update(deviceInfo);
-
-            await _Context.SaveChangesAsync();
-
-            SensorReply sensorReply = new SensorReply
+            catch (Exception ex)
             {
-                deviceID = response.DeviceId,
-                NewGuid = deviceInfo.GUID,
-                Interval = 30,
-                ThresHoldSets = await _Context.ParameterBenchmark.ToListAsync()
-            };
-
-            return Ok(sensorReply);
+                _Logger.LogError($"Error in data {ex.Message}");
+                return BadRequest($"Error in data{ex.Message}");
+            }
+            
         }
 
     }

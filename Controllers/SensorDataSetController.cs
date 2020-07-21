@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using PiratesBay.Data;
 using PiratesBay.Models;
 using PiratesBay.Models.BackGround;
+using PiratesBay.Services.Communication;
 
 namespace PiratesBay.Controllers
 {
@@ -17,12 +18,22 @@ namespace PiratesBay.Controllers
     public class SensorDataSetController : ControllerBase
     {
         private readonly DataContext _Context;
+        private readonly Communicate _communicate;
         public ILogger<SensorDataSetController> _Logger { get; }
 
-        public SensorDataSetController(DataContext Context, ILogger<SensorDataSetController> logger)
+        public SensorDataSetController(DataContext Context, ILogger<SensorDataSetController> logger, Communicate communicate)
         {
             _Context = Context;
             _Logger = logger;
+            _communicate = communicate;
+        }
+
+        private class WarningParameters
+        {
+            public int ParamID { get; set; }
+            public string ParamName { get; set; }
+            public double CurrentValue { get; set; }
+            public double Benchmark { get; set; }
         }
 
 
@@ -44,7 +55,7 @@ namespace PiratesBay.Controllers
                     Input_Value = paramData.Value,
                     Param_Id = paramData.ParameterID
                 };
-                _Context.SensorData.Add(sensorData);    
+                _Context.SensorData.Add(sensorData);
             }
             var deviceInfo = await _Context.Device_info.FindAsync(response.DeviceId);
             deviceInfo.lastupdatedon = response.dateTime;

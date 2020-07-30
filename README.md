@@ -19,9 +19,9 @@ users will be able to view the data in a suitable viewstyle.
   
 # <img src="https://img.icons8.com/nolan/96/system-task.png"/>  System Requirements:-
   
-  1)512 MB RAM
+  1)Memory: 512 MB.
   
-  2) HDD : 500MB
+  2)HDD : 500 MB.
   
   Internet Connectivity
   
@@ -35,9 +35,9 @@ users will be able to view the data in a suitable viewstyle.
   
 # <img src="https://img.icons8.com/officel/80/000000/code.png"/> Steps to Build Locally:- 
 
-  1) Open Power shell in the project folder (shift + RightClick).
+  1)Open Power shell in the project folder (shift + RightClick).
   
-  2) run the command "dotnet run --project [Solution Path]"
+  2)run the command "dotnet run --project [Solution Path]"
   
 # <img src="https://img.icons8.com/nolan/96/code.png"/> End Points:-
 

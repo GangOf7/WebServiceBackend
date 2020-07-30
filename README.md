@@ -7,7 +7,7 @@ Dot net core 3.1
 # Design IDE:-
 Visual studio Code/ Visual studio 2019
 
-# OverView:-
+#<img src="https://img.icons8.com/nolan/64/futures.png"/> OverView:-
 
 We have designed more than 15 services here to work with the hardware and user end . 
 Hardware end will post/send the realtime data to the PiratesBay and it will save the same to the Database,

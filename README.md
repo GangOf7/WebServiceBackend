@@ -41,7 +41,7 @@ users will be able to view the data in a suitable viewstyle.
   
 # <img src="https://img.icons8.com/nolan/96/code.png"/> End Points:-
 
-  1)https://localhost:5001/ {api} /{controllername}
+  1)https://localhost:5001/
   
   
   

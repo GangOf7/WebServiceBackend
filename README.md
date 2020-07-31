@@ -39,6 +39,23 @@ users will be able to view the data in a suitable viewstyle.
   
   2)run the command "dotnet run --project C:\Users\ {Downloaded solution path} "
   
+  **we can build this solution from Visual studio Code / Visual Studio 2019
+  
+    1)Copy the GitHub Clone URL.
+    
+    2)open Visual studio 2019.
+    
+    3)Click on the " Clone a Repository".
+    
+    4)Paste the GitHub Repository URL into the "Repository Location" field.
+    
+    5)Click On the clone.
+    
+    6)After solution propely loaded in Visual Studio Click on the "Build" button.
+    
+    Note : To build it from visual studio its better to have 8 GB of Memory.
+    
+  
 # <img src="https://img.icons8.com/nolan/96/code.png"/> End Points:-
 
   1)https://localhost:5001/

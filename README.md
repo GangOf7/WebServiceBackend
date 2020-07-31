@@ -37,7 +37,7 @@ users will be able to view the data in a suitable viewstyle.
 
   1)Open Power shell in the project folder (shift + RightClick).
   
-  2)run the command "dotnet run --project [Solution Path]"
+  2)run the command "dotnet run --project C:\Users\{Downloaded solution path} "
   
 # <img src="https://img.icons8.com/nolan/96/code.png"/> End Points:-
 
